@@ -5,6 +5,8 @@ OpenAI-compatible proxy for AI Fiesta chat completions.
 This server accepts OpenAI-style chat requests and forwards them to AI Fiesta's
 `/api/chats/v3/completions` endpoint.
 
+Built with Node.js + Express (JavaScript).
+
 ## Features
 
 - OpenAI-compatible endpoints:
@@ -29,6 +31,12 @@ This server accepts OpenAI-style chat requests and forwards them to AI Fiesta's
 - `src/config.js` - env and runtime config
 - `src/utils/*` - helper utilities
 
+## Tech Stack
+
+- Node.js
+- Express
+- JavaScript
+
 ## Requirements
 
 - Node.js 18+
@@ -42,7 +50,7 @@ This server accepts OpenAI-style chat requests and forwards them to AI Fiesta's
 npm install
 ```
 
-2. Configure `.env`:
+2. Configure `.env` with your own token:
 
 ```env
 AIFIESTA_TOKEN=your_token_here
@@ -80,7 +88,7 @@ curl -X POST http://localhost:3000/v1/chat/completions \
   -d '{
     "model": "claude-sonnet-4",
     "messages": [
-      {"role": "user", "content": "Hey"}
+      {"role": "user", "content": "Give me a 4-week plan to learn Kafka with Node.js microservices."}
     ],
     "stream": true
   }'
@@ -97,7 +105,7 @@ curl -X POST http://localhost:3000/v1/chat/completions \
     "chatId": "f7340132-bcc5-48a3-aa02-178219d77a19",
     "model": "claude-sonnet-4",
     "messages": [
-      {"role": "user", "content": "whats up?"}
+      {"role": "user", "content": "Great. Now show a sample project structure and first milestone."}
     ],
     "stream": true
   }'
@@ -124,5 +132,5 @@ Request field `"stream": true` is accepted for compatibility, but this proxy cur
 
 ## Security
 
-- Do not commit `.env` with real tokens.
+- Use your own `AIFIESTA_TOKEN` in `.env`.
 - Rotate token immediately if exposed.
