@@ -89,8 +89,7 @@ curl -X POST http://localhost:3000/v1/chat/completions \
     "model": "claude-sonnet-4",
     "messages": [
       {"role": "user", "content": "Give me a 4-week plan to learn Kafka with Node.js microservices."}
-    ],
-    "stream": true
+    ]
   }'
 ```
 
@@ -106,8 +105,7 @@ curl -X POST http://localhost:3000/v1/chat/completions \
     "model": "claude-sonnet-4",
     "messages": [
       {"role": "user", "content": "Great. Now show a sample project structure and first milestone."}
-    ],
-    "stream": true
+    ]
   }'
 ```
 
@@ -125,10 +123,6 @@ The proxy accepts continuation chat id from any one of:
 - Response is OpenAI-style JSON (`choices[0].message.content`, etc.).
 - `chatId` is included when available.
 - `x-chat-id` response header is set when available.
-
-## Streaming Note
-
-Request field `"stream": true` is accepted for compatibility, but this proxy currently returns a single final JSON response (not chunked SSE to client).
 
 ## Security
 
